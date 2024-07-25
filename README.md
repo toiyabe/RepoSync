@@ -1,4 +1,4 @@
-# Repository Synchronizer Pipeline
+# Azure DevOps Repository Synchronizer
 
 This Azure DevOps YAML pipeline script keeps files in a source repository--known as the "upstream" repository--
 synchronized with the files in another repository--known as the "downstream" repository.
