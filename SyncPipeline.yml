@@ -1,0 +1,49 @@
+# This pipeline pushes changes from an "upstream" to a "downstream" repository.
+# See SYNC-PIPELINE-README.md for more information.
+
+# Choose the trigger type you want to use.
+# Tigger information:  https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#ci-triggers
+
+## A pipeline with no CI trigger (requires manual trigger)
+trigger: none
+
+## A pipeline CI trigger on main branch
+# trigger: main
+
+## A scheduled trigger example
+# schedules:
+# - cron: '0 0 * * *'
+#  displayName: Daily midnight build
+#  branches:
+#    include:
+#    - main
+#    - releases/*
+
+
+pool:
+  name: Azure Pipelines
+
+steps:
+
+- powershell: |
+
+    # Don't run this script if the key variables are not set.
+    if ( $null -eq  ${env:DOWNSTREAMKEY} -or $null -eq  ${env:UPSTREAMKEY} )
+    {
+      Write-Host DOWNSTREAMKEY and/or UPSTREAMKEY varable is not set.
+      Exit
+    }
+
+    git remote add upstream https://${env:UPSTREAMUSER}:${env:UPSTREAMKEY}@${env:UPSTREAMPATH}
+    git fetch upstream
+    git rebase upstream/main
+    git push -f https://${env:DOWNSTREAMUSER}:${env:DOWNSTREAMKEY}@${env:DOWNSTREAMPATH} HEAD:main
+  
+# The following environment variables are set as 'secrets.'
+# Because these are secrets, they must be explicitly set as environment variables in the YAML code.
+# Environment variables that are not set as 'secrets' can be used directly.
+# For example: ${env:UPSTREAMUSER}.  This environment varable is not set as a 'secret' so
+# it can it be used directly in the code above.
+  env:
+    UPSTREAMKEY: $(UPSTREAMKEY)
+    DOWNSTREAMKEY: $(DOWNSTREAMKEY)
