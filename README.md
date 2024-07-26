@@ -44,7 +44,7 @@ NOTE: The path __DOES NOT__ start with "https://"
 
 ## Setup the "Downstream" Pipeline
 
-Set things up in two steps. First, create the pipeline, then set the environment variables.
+Setup consists of two steps. First, create the pipeline, then set the environment variables.
 
 ### Create Pipeline
 
