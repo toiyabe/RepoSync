@@ -49,10 +49,11 @@ repo(s) then, (2) set the pipeline environment variables.
 
 ### Create Pipeline
 
-From the __downstream__ Azure DevOps project home screen choose "Pipelines," then follow these steps:
+From the __downstream__ Azure DevOps project home screen choose "Pipelinee."
+Next, follow these steps:
 
 1. Click "Create Pipeline."
-2. Then it asks "Where is your code?"  Here select  "Azure Repos Git (YAML)."
+2. When asked, "Where is your code?" Select "Azure Repos Git (YAML)."
 3. On the next tab, select the current repo.
 4. Now on the "Configure your pipeline" tab, scroll down and select "Existing Azure Pipelines YAML file."
 5. When the popup dialog appears, select "/SyncPipeline.yml" file, then "Continue."
