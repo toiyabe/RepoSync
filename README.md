@@ -49,7 +49,7 @@ repo(s) then, (2) set the pipeline environment variables.
 
 ### Create Pipeline
 
-From the Azure DevOps project home screen choose "Pipelines," then follow these steps:
+From the __downstream__ Azure DevOps project home screen choose "Pipelines," then follow these steps:
 
 1. Click "Create Pipeline."
 2. Then it asks "Where is your code?"  Here select  "Azure Repos Git (YAML)."
