@@ -44,7 +44,8 @@ NOTE: The path __DOES NOT__ start with "https://"
 
 ## Setup the "Downstream" Pipeline
 
-Setup consists of two steps. First, create the pipeline, then set the environment variables.
+Setup consists of two steps: (1) create the pipeline in the downstream
+repo(s) then, (2) set the pipeline environment variables.
 
 ### Create Pipeline
 
