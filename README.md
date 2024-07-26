@@ -26,10 +26,10 @@ before continuing.  The following shows the variable names their values:
 
 | Variable        | Value           | Save as Secret   |
 | --------------- | --------------- | ---------------- |
-| UPSTREAMPATH    | URL to upstream repo     | No      |
+| UPSTREAMPATH    | Path to upstream repo     | No      |
 | UPSTREAMUSER    | Git credentials username | No      |
 | UPSTREAMKEY     | Git credentials password | Yes     |
-| DOWNSTREAMPATH  | URL to downstream repo   | No      |
+| DOWNSTREAMPATH  | Path to downstream repo   | No      |
 | DOWNSTREAMUSER  | Git credentials username | No      |
 | DOWNSTREAMKEY   | Git credentials password | Yes     |
 
@@ -37,10 +37,10 @@ Notes:
 
 * The username and password credentials can be obtained by clicking on "Files" under the "Repo" tab on left, then "Clone," then "Generate Credentials."
 * The two "KEY" variables should be saved as "Secrets" so they are not visible as clear text.
-* Example URL:
+* Example path:
   *  dev.azure.com/MoonriseSoftwareLLC/TestUpStream/_git/TestUpStream
 
-NOTE: The URL __DOES NOT__ start with "https://"
+NOTE: The path __DOES NOT__ start with "https://"
 
 ## Setup the "Downstream" Pipeline
 
