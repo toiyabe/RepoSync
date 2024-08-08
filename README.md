@@ -1,18 +1,22 @@
 # Azure DevOps Repository Synchronizer
 
-This is an Azure DevOps pipeline script that keeps files in a source repository--known as the "upstream" repository--
-synchronized with the files in another repository--known as the "downstream" repository.
+This is an Azure DevOps pipeline script that keeps files in a source repository--known as the "upstream"
+repository--synchronized with the files in another repository--known as the "downstream" repository.
 
-## Install Pipeline Code
+## Install the Pipeline
 
-Upload the 'SyncPipeline.yml' YAML file to the __upstream__ Azure DevOps repository.
+Upload the 'azure-pipelines.yml' YAML file to the __upstream__ Azure DevOps repository. If you already have
+a pipeline file by that same name, rename the file before uploading.
 
-NOTE: This pipeline code will be run from the __downstream__ repository(ies), so there is no need to configure
-it as a "pipeline" in the upstream repo.
+Once the YAML file is uploaded, select "__Pipelines__" on the DevOps project menu.
 
-## Choose the type of trigger
+If the pipeline does not appear, you can load it as follows:
 
-Next, choose what kind of [trigger](https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#ci-triggers) will be used to start the pipeline from the __downstream__ repository(s). Example triggers are found in the YAML file.
+1. Click "Create Pipeline."
+2. When asked, "Where is your code?" Select "Azure Repos Git (YAML)."
+3. On the next tab, select the current repo.
+4. Now on the "Configure your pipeline" tab, scroll down and select "Existing Azure Pipelines YAML file."
+5. When the popup dialog appears, select "/azure-pipelines.yml" file (or what ever file name you used), then "Continue."
 
 ## Create "Downstream" Repository
 
@@ -41,22 +45,6 @@ Notes:
   *  dev.azure.com/MoonriseSoftwareLLC/TestUpStream/_git/TestUpStream
 
 NOTE: The path __DOES NOT__ start with "https://"
-
-## Setup the "Downstream" Pipeline
-
-Setup consists of two steps: (1) create the pipeline in the downstream
-repo(s) then, (2) set the pipeline environment variables.
-
-### Create Pipeline
-
-From the __downstream__ Azure DevOps project home screen choose "Pipelinee."
-Next, follow these steps:
-
-1. Click "Create Pipeline."
-2. When asked, "Where is your code?" Select "Azure Repos Git (YAML)."
-3. On the next tab, select the current repo.
-4. Now on the "Configure your pipeline" tab, scroll down and select "Existing Azure Pipelines YAML file."
-5. When the popup dialog appears, select "/SyncPipeline.yml" file, then "Continue."
 
 ### Set Environment Variables
 
